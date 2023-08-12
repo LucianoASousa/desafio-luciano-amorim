@@ -16,7 +16,6 @@ class CaixaDaLanchonete {
         const valorTotal = this.calcularTotal(itens);
         const valorTotalFormatado = this.valorArredondadoETaxadoEFormatado(valorTotal, metodoDePagamentoValido);
         
- 
         return valorTotalFormatado
     }
 
@@ -50,8 +49,8 @@ class CaixaDaLanchonete {
         }
 
         itens.forEach(item => {
-            const itemCardapio = cardapio.find(cardapio => cardapio.codigo === item.nome);
 
+            const itemCardapio = cardapio.find(cardapio => cardapio.codigo === item.nome);
             if (!itemCardapio) {
                 resultado = {
                     status: false,
@@ -88,7 +87,6 @@ class CaixaDaLanchonete {
                 status: false,
                 mensagem: 'Forma de pagamento inválida!',
                 taxa: 0,
-                metodo: '',
             }
         }
     
@@ -96,7 +94,6 @@ class CaixaDaLanchonete {
             status: true,
             mensagem: '',
             taxa: metodoDePagamentoSelecionado.taxa,
-            metodo: metodoDePagamentoSelecionado.metodo,
         }
     }
 
@@ -111,8 +108,5 @@ class CaixaDaLanchonete {
         return itens;
     }
 }
-
-const caixaDaLanchonete = new CaixaDaLanchonete();
-console.log(caixaDaLanchonete.calcularValorDaCompra('credito', ['cafe,4', 'sanduiche,3', 'queijo,2']));
 
 export { CaixaDaLanchonete };
